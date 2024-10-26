@@ -13,49 +13,44 @@
       </div>
     </header>
 
-    <iframe
-      id="meuIframe"
-      src="https://aproxima.rs.gov.br/"
-      width="100%"
-      height="600"
-      style="border: none"
-    ></iframe>
+    <div style="teste">
+      <iframe class="iframe"
+        id="meuIframe"
+        src="https://aproxima.rs.gov.br/"
+        width="80%"
+        height="650"
+        style="border: none"
+      ></iframe>
+    </div>
 
     <script>
-      document.getElementById('meuIframe').onload = function () {
-        const iframe =
-          document.getElementById('meuIframe').contentWindow.document
-        const appMap = iframe.querySelector('app-map')
+      const iframe = document.getElementById('meuIframe')
 
-        if (appMap) {
-          console.log(appMap)
-          // Aqui você pode manipular a tag `app-map` como quiser
-        } else {
-          console.log('Tag app-map não encontrada.')
+      // Função para tentar acessar o conteúdo do iframe
+      function acessarConteudoIframe() {
+        try {
+          // Acessa o conteúdo do iframe
+          const iframeDocument =
+            iframe.contentDocument || iframe.contentWindow.document
+
+          // Seleciona o elemento dentro do iframe
+          const targetElement = iframeDocument.querySelector(
+            '.header-logo-text-ajuda'
+          )
+
+          // Verifica se o elemento existe e exibe o texto no console
+          if (targetElement) {
+            console.log('Texto encontrado:', targetElement.textContent)
+          } else {
+            console.log('Elemento não encontrado.')
+          }
+        } catch (error) {
+          console.error('Erro ao acessar o conteúdo do iframe:', error)
         }
       }
+
+      // Define um intervalo de 1 segundo para tentar acessar o conteúdo
+      setInterval(acessarConteudoIframe, 1000)
     </script>
-    <!-- <section>
-      <div class="container">
-    <iframe id="meuIframe" src="https://aproxima.rs.gov.br/">
-      </div>
-    </section>
-
-
-
-
-
-
-    <script>
-  // Aguardando o carregamento do iframe
-  document.getElementById('meuIframe').onload = function() {
-    var iframe = document.getElementById('meuIframe');
-    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-    var divs = innerDoc.getElementsByTagName('div');
-    for(var i = 0; i < divs.length; i++) {
-      console.log(divs[i]); // Faz algo com cada div encontrada
-    }
-  };
-</script> -->
   </body>
 </html>
