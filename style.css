@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: rgba(127, 255, 212, 0.438);
+}
+.container {
+  background-color: rgba(255, 0, 0, 0.445);
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+section {
+  background-color: rgba(2, 255, 65, 0.438);
+}

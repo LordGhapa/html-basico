@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <p>header</p>
+      </div>
+    </header>
+    <section>
+      <div class="container">
+    <iframe id="meuIframe" src="https://aproxima.rs.gov.br/">
+      </div>
+    </section>
+
+
+    <script>
+  // Aguardando o carregamento do iframe
+  document.getElementById('meuIframe').onload = function() {
+    var iframe = document.getElementById('meuIframe');
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var divs = innerDoc.getElementsByTagName('div');
+    for(var i = 0; i < divs.length; i++) {
+      console.log(divs[i]); // Faz algo com cada div encontrada
+    }
+  };
+</script>
+  </body>
+</html>
